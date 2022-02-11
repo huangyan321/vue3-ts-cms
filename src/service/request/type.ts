@@ -8,4 +8,5 @@ export interface HyInterceptors {
 
 export interface HyAxiosRequestConfig extends AxiosRequestConfig {
   interceptors?: HyInterceptors
+  loading?: boolean
 }

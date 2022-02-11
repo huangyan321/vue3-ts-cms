@@ -5,6 +5,10 @@ export default new HyRequest({
   baseURL: BASE_URL,
   interceptors: {
     requestInterceptors: (config) => {
+      const token = ''
+      if (config.headers && token) {
+        config.headers.Authorization = `Bearer ${token}`
+      }
       console.log('requestInterceptors')
       return config
     },
@@ -18,5 +22,6 @@ export default new HyRequest({
     responseInterceptorsCatch: (err) => {
       console.log('requestInterceptorsCatch')
     }
-  }
+  },
+  loading: true
 })
