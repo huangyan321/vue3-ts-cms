@@ -13,6 +13,14 @@ class HyRequest {
       config.interceptors?.responseInterceptors,
       config.interceptors?.responseInterceptorsCatch
     )
+    this.instance.interceptors.request.use((config) => {
+      console.log('全局request拦截')
+      return config
+    })
+    this.instance.interceptors.response.use((config) => {
+      console.log('全局response拦截')
+      return config
+    })
   }
   async request(config: HyAxiosRequestConfig): Promise<any> {
     //单个请求拦截器
