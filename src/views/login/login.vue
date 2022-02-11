@@ -10,10 +10,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
+import { test } from '@/api/test'
 
 export default defineComponent({
   setup() {
+    onMounted(async () => {
+      let a = await test()
+      console.log(a)
+    })
     return {}
   }
 })
