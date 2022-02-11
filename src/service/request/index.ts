@@ -1,15 +1,6 @@
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosInstance } from 'axios'
-interface HyInterceptors {
-  requestInterceptors?: (config: AxiosRequestConfig) => AxiosRequestConfig
-  requestInterceptorsCatch?: (err: any) => any
-  responseInterceptors?: (config: AxiosRequestConfig) => AxiosRequestConfig
-  responseInterceptorsCatch?: (err: any) => any
-}
-
-interface HyAxiosRequestConfig extends AxiosRequestConfig {
-  interceptors?: HyInterceptors
-}
+import type { HyAxiosRequestConfig } from './type'
 class HyRequest {
   instance: AxiosInstance
   constructor(config: HyAxiosRequestConfig) {
@@ -23,7 +14,14 @@ class HyRequest {
       config.interceptors?.responseInterceptorsCatch
     )
   }
-  async request(config: AxiosRequestConfig): Promise<any> {
+  async request(config: HyAxiosRequestConfig): Promise<any> {
+    //单个请求拦截器
+    if (config.interceptors?.requestInterceptors) {
+      config = config.interceptors.requestInterceptors(config)
+    }
+    if (config.interceptors?.responseInterceptors) {
+      config = config.interceptors.responseInterceptors(config)
+    }
     return new Promise((resolve, reject) => {
       this.instance
         .request(config)
