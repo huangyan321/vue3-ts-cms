@@ -1,4 +1,4 @@
-import type { AxiosRequestConfig, AxiosInstance } from 'axios'
+import type { AxiosRequestConfig } from 'axios'
 export interface HyInterceptors {
   requestInterceptors?: (config: AxiosRequestConfig) => AxiosRequestConfig
   requestInterceptorsCatch?: (err: any) => any
@@ -8,5 +8,10 @@ export interface HyInterceptors {
 
 export interface HyAxiosRequestConfig extends AxiosRequestConfig {
   interceptors?: HyInterceptors
-  loading?: boolean
+  showLoading?: boolean
+}
+export interface DateType {
+  code: number
+  data: any
+  msg: string
 }

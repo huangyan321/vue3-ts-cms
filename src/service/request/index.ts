@@ -8,7 +8,7 @@ class HyRequest {
   loading: any
   showLoading: boolean
   constructor(config: HyAxiosRequestConfig) {
-    this.showLoading = config.loading ?? DEFAULT_LOADING
+    this.showLoading = config.showLoading ?? DEFAULT_LOADING
     this.instance = axios.create(config)
     this.instance.interceptors.request.use(
       config.interceptors?.requestInterceptors,
@@ -57,7 +57,7 @@ class HyRequest {
       }
     )
   }
-  async request(config: HyAxiosRequestConfig): Promise<any> {
+  async request<T>(config: HyAxiosRequestConfig): Promise<T> {
     //单个请求拦截器
     if (config.interceptors?.requestInterceptors) {
       config = config.interceptors.requestInterceptors(config)
@@ -66,8 +66,8 @@ class HyRequest {
       config = config.interceptors.responseInterceptors(config)
     }
     return new Promise((resolve, reject) => {
-      if (config.loading === false) {
-        this.showLoading = config.loading
+      if (config.showLoading === false) {
+        this.showLoading = config.showLoading
       }
       this.instance
         .request(config)
