@@ -1,19 +1,24 @@
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosInstance } from 'axios'
-import type { HyAxiosRequestConfig } from './type'
+//接口扩展
+import type { HyAxiosRequestConfig, HyInterceptors } from './type'
 import { ElLoading } from 'element-plus'
 const DEFAULT_LOADING = true
 class HyRequest {
   instance: AxiosInstance
-  loading: any
+  loading?: any
   showLoading: boolean
+  interceptors?: HyInterceptors
   constructor(config: HyAxiosRequestConfig) {
     this.showLoading = config.showLoading ?? DEFAULT_LOADING
+    console.log(this.showLoading, 'showLoading')
     this.instance = axios.create(config)
+    //定制拦截
     this.instance.interceptors.request.use(
       config.interceptors?.requestInterceptors,
       config.interceptors?.requestInterceptorsCatch
     )
+    //定制拦截
     this.instance.interceptors.response.use(
       config.interceptors?.responseInterceptors,
       config.interceptors?.responseInterceptorsCatch
@@ -21,6 +26,8 @@ class HyRequest {
     //全局拦截
     this.instance.interceptors.request.use(
       (config: AxiosRequestConfig) => {
+        console.log(this.showLoading)
+
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -29,7 +36,7 @@ class HyRequest {
             background: 'rgba(0, 0, 0, 0.7)'
           })
         }
-        console.log('全局request拦截')
+        console.log('所有实例request拦截')
         return config
       },
       (err) => {
@@ -38,17 +45,15 @@ class HyRequest {
     )
     this.instance.interceptors.response.use(
       (res: AxiosRequestConfig) => {
-        if (this.showLoading === true) {
-          setTimeout(() => {
-            this.loading.close()
-          }, 2000)
+        if (this.showLoading) {
+          this.loading.close()
         }
         this.showLoading = DEFAULT_LOADING
-        console.log('全局response拦截')
+        console.log('所有实例response拦截')
         return res
       },
       (err) => {
-        if (this.showLoading === true) {
+        if (this.showLoading) {
           this.loading.close()
         }
         this.showLoading = DEFAULT_LOADING
@@ -66,7 +71,7 @@ class HyRequest {
       config = config.interceptors.responseInterceptors(config)
     }
     return new Promise((resolve, reject) => {
-      if (config.showLoading === false) {
+      if (config.showLoading) {
         this.showLoading = config.showLoading
       }
       this.instance
