@@ -24,5 +24,5 @@ export default new HyRequest({
       console.log('requestInterceptorsCatch')
     }
   },
-  showLoading: true
+  showLoading: false
 })

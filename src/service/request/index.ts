@@ -1,9 +1,9 @@
 import axios from 'axios'
-import type { AxiosRequestConfig, AxiosInstance } from 'axios'
+import type { AxiosInstance } from 'axios'
 //接口扩展
 import type { HyAxiosRequestConfig, HyInterceptors } from './type'
 import { ElLoading } from 'element-plus'
-const DEFAULT_LOADING = true
+const DEFAULT_LOADING = false
 class HyRequest {
   instance: AxiosInstance
   loading?: any
@@ -26,8 +26,6 @@ class HyRequest {
     //全局拦截
     this.instance.interceptors.request.use(
       (config) => {
-        console.log(this.showLoading)
-
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -36,7 +34,6 @@ class HyRequest {
             background: 'rgba(0, 0, 0, 0.7)'
           })
         }
-        console.log('所有实例request拦截')
         return config
       },
       (err) => {
@@ -49,7 +46,6 @@ class HyRequest {
           this.loading.close()
         }
         this.showLoading = DEFAULT_LOADING
-        console.log('所有实例response拦截')
         return res.data
       },
       (err) => {
@@ -63,17 +59,13 @@ class HyRequest {
     )
   }
   async request<T>(config: HyAxiosRequestConfig<T>): Promise<T> {
-    //单个请求拦截器
-    if (config.interceptors?.requestInterceptors) {
-      config = config.interceptors.requestInterceptors(config)
-    }
-
     return new Promise((resolve, reject) => {
       if (config.showLoading) {
         this.showLoading = config.showLoading
       }
-      if (config.interceptors) {
-        this
+      //单个请求拦截器
+      if (config.interceptors?.requestInterceptors) {
+        config = config.interceptors.requestInterceptors(config)
       }
       this.instance
         .request<any, T>(config)
