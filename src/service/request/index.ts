@@ -25,7 +25,7 @@ class HyRequest {
     )
     //全局拦截
     this.instance.interceptors.request.use(
-      (config: AxiosRequestConfig) => {
+      (config) => {
         console.log(this.showLoading)
 
         if (this.showLoading) {
@@ -44,13 +44,13 @@ class HyRequest {
       }
     )
     this.instance.interceptors.response.use(
-      (res: AxiosRequestConfig) => {
+      (res) => {
         if (this.showLoading) {
           this.loading.close()
         }
         this.showLoading = DEFAULT_LOADING
         console.log('所有实例response拦截')
-        return res
+        return res.data
       },
       (err) => {
         if (this.showLoading) {
@@ -62,27 +62,43 @@ class HyRequest {
       }
     )
   }
-  async request<T>(config: HyAxiosRequestConfig): Promise<T> {
+  async request<T>(config: HyAxiosRequestConfig<T>): Promise<T> {
     //单个请求拦截器
     if (config.interceptors?.requestInterceptors) {
       config = config.interceptors.requestInterceptors(config)
     }
-    if (config.interceptors?.responseInterceptors) {
-      config = config.interceptors.responseInterceptors(config)
-    }
+
     return new Promise((resolve, reject) => {
       if (config.showLoading) {
         this.showLoading = config.showLoading
       }
+      if (config.interceptors) {
+        this
+      }
       this.instance
-        .request(config)
+        .request<any, T>(config)
         .then((res) => {
-          resolve(res.data)
+          if (config.interceptors?.responseInterceptors) {
+            res = config.interceptors.responseInterceptors(res)
+          }
+          resolve(res)
         })
         .catch((err) => {
           reject(err)
         })
     })
+  }
+  get<T>(config: HyAxiosRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'GET' })
+  }
+  post<T>(config: HyAxiosRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'POST' })
+  }
+  delete<T>(config: HyAxiosRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'DELETE' })
+  }
+  put<T>(config: HyAxiosRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'PUT' })
   }
 }
 
