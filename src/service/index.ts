@@ -10,18 +10,16 @@ export default new HyRequest({
       if (config.headers && token) {
         config.headers.Authorization = `Bearer ${token}`
       }
-      console.log('requestInterceptors')
       return config
     },
     requestInterceptorsCatch: (err) => {
-      console.log('requestInterceptorsCatch')
+      return err
     },
     responseInterceptors: (config) => {
-      console.log('responseInterceptors')
       return config
     },
     responseInterceptorsCatch: (err) => {
-      console.log('requestInterceptorsCatch')
+      return err
     }
   },
   showLoading: false

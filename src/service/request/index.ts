@@ -11,7 +11,6 @@ class HyRequest {
   interceptors?: HyInterceptors
   constructor(config: HyAxiosRequestConfig) {
     this.showLoading = config.showLoading ?? DEFAULT_LOADING
-    console.log(this.showLoading, 'showLoading')
     this.instance = axios.create(config)
     //定制拦截
     this.instance.interceptors.request.use(
