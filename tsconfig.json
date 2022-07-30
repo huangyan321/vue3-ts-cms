@@ -1,15 +1,24 @@
 {
   "compilerOptions": {
+    //目标代码 转化成js(ES 5/6/7)
     "target": "esnext",
+    //目标代码所用的模块化方案 es-module
     "module": "esnext",
+    //严格类型检查（any）
     "strict": true,
+    //是否对jsx做处理 默认保留
     "jsx": "preserve",
+    //辅助导入功能
     "importHelpers": true,
+    //使用node解析模块规则
     "moduleResolution": "node",
+    //跳过一些库的类型检测
     "skipLibCheck": true,
+    //
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    //文件路径在解析时的基本url
     "baseUrl": ".",
     "types": ["webpack-env"],
     "paths": {

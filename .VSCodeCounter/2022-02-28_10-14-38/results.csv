@@ -1,0 +1,33 @@
+"filename", "language", "Ignore", "TypeScript", "JSON", "JavaScript", "Markdown", "JSON with Comments", "Vue", "HTML", "comment", "blank", "total"
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\.eslintrc.js", "JavaScript", 0, 0, 0, 21, 0, 0, 0, 0, 0, 1, 22
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\.prettierignore", "Ignore", 7, 0, 0, 0, 0, 0, 0, 0, 0, 3, 10
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\.prettierrc", "JSON", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\31_项目搭建.md", "Markdown", 0, 0, 0, 0, 495, 0, 0, 0, 0, 228, 723
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\34_项目打包和自动化部署.md", "Markdown", 0, 0, 0, 0, 180, 0, 0, 0, 0, 168, 348
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\README.md", "Markdown", 0, 0, 0, 0, 19, 0, 0, 0, 0, 11, 30
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\auto-imports.d.ts", "TypeScript", 0, 4, 0, 0, 0, 0, 0, 0, 2, 1, 7
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\babel.config.js", "JavaScript", 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 4
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\commitlint.config.js", "JavaScript", 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 4
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\components.d.ts", "TypeScript", 0, 7, 0, 0, 0, 0, 0, 0, 3, 3, 13
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\package-lock.json", "JSON", 0, 0, 16373, 0, 0, 0, 0, 0, 0, 1, 16374
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\package.json", "JSON", 0, 0, 55, 0, 0, 0, 0, 0, 0, 1, 56
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\public\index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 16, 1, 1, 18
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\App.vue", "Vue", 0, 0, 0, 0, 0, 0, 10, 0, 0, 1, 11
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\api\test.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\components\HelloWorld.vue", "Vue", 0, 0, 0, 0, 0, 0, 119, 0, 0, 4, 123
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\global\index.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 0, 1, 2, 8
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\global\register-element+.ts", "TypeScript", 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 9
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\main.ts", "TypeScript", 0, 11, 0, 0, 0, 0, 0, 0, 2, 3, 16
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\router\index.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 0, 0, 3, 24
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\service\index.ts", "TypeScript", 0, 26, 0, 0, 0, 0, 0, 0, 1, 1, 28
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\service\request\config.ts", "TypeScript", 0, 7, 0, 0, 0, 0, 0, 0, 0, 3, 10
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\service\request\index.ts", "TypeScript", 0, 81, 0, 0, 0, 0, 0, 0, 2, 2, 85
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\service\request\type.ts", "TypeScript", 0, 16, 0, 0, 0, 0, 0, 0, 0, 2, 18
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\shims-vue.d.ts", "TypeScript", 0, 6, 0, 0, 0, 0, 0, 0, 1, 1, 8
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\store\index.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 0, 0, 2, 11
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\store\module\login.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\views\login\login.vue", "Vue", 0, 0, 0, 0, 0, 0, 24, 0, 0, 4, 28
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\src\views\main\main.vue", "Vue", 0, 0, 0, 0, 0, 0, 12, 0, 0, 4, 16
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 19, 0, 0, 3, 1, 23
+"c:\Users\16045\Desktop\code\my project\vue3-ts-cms\vue.config.js", "JavaScript", 0, 0, 0, 25, 0, 0, 0, 0, 7, 1, 33
+"Total", "-", 7, 210, 16437, 52, 694, 19, 165, 16, 23, 458, 18081

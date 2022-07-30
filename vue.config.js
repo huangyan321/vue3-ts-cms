@@ -9,6 +9,7 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 module.exports = {
   outputDir: 'dist',
+  publicPath: './',
   configureWebpack: {
     plugins: [
       AutoImport({
