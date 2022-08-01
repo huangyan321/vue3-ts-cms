@@ -1,5 +1,11 @@
 <template>
-  <div><h1>main</h1></div>
+  <el-container>
+    <el-aside class="sidebar-container">Aside</el-aside>
+    <el-container class="main-container">
+      <el-header>Header</el-header>
+      <el-main>Main</el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script lang="ts">
@@ -12,4 +18,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped lang="less"></style>

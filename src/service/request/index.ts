@@ -40,20 +40,23 @@ class HyRequest {
       }
     )
     this.instance.interceptors.response.use(
-      (res) => {
+      (config) => {
         if (this.showLoading) {
           this.loading.close()
         }
         this.showLoading = DEFAULT_LOADING
-        return res.data
+        const data = config.data
+        if (data.code !== 200) {
+          return Promise.reject(data.msg)
+        }
+        return data
       },
       (err) => {
         if (this.showLoading) {
           this.loading.close()
         }
         this.showLoading = DEFAULT_LOADING
-        console.log(err)
-        return err
+        return Promise.reject(err)
       }
     )
   }

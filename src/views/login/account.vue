@@ -31,7 +31,9 @@ export default defineComponent({
     const accountFormRef = ref<InstanceType<typeof ElForm>>()
     onMounted(() => {
       const cacheAccount = getCache('account')
-      accountForm.value = cacheAccount
+      if (cacheAccount) {
+        accountForm.value = cacheAccount
+      }
     })
     return {
       accountForm,

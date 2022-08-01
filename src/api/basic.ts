@@ -22,3 +22,26 @@ export function login(data: LoginType): Promise<any> {
     }
   })
 }
+export function getInfo(token: string): Promise<any> {
+  return hyRequest.get<DateType>({
+    url: '/user/fetchUserInfo',
+    showLoading: false,
+    params: {
+      token
+    },
+    interceptors: {
+      requestInterceptors: (config) => {
+        return config
+      },
+      requestInterceptorsCatch(err) {
+        return err
+      },
+      responseInterceptors: (config) => {
+        return config
+      },
+      responseInterceptorsCatch(err) {
+        return err
+      }
+    }
+  })
+}
